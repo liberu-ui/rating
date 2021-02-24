@@ -55,6 +55,7 @@ export default {
 </script>
 <style lang="scss">
 .rating {
+    min-width: 150px;
     a {
         color: grey;
 
