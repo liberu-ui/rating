@@ -1,15 +1,20 @@
 <template>
-    <div class="rating is-inline-block"
-        :class="{'readonly': readonly}"
-        @mouseover="hover= !readonly"
-        @mouseleave="hover=false; hoverValue=0">
-        <div v-for="rate in max"
-            style="display: inline-block;"
+    <div class="rating"
+        @mouseover="hover = !readonly"
+        @mouseleave="hover = false; hoverValue = 0">
+        <div class="is-inline"
+            v-for="rate in max"
             :key="rate">
+            <span class="icon"
+                :class="{'active': active(rate)}"
+                v-if="readonly">
+                <fa icon="star"/>
+            </span>
             <a class="icon"
-                @mouseover="hoverValue=rate"
-                @click="!readonly && $emit('input', rate)"
-                :class="{'active': active(rate)}">
+                @mouseover="hoverValue = rate"
+                @click="$emit('input', rate)"
+                :class="{'active': active(rate)}"
+                v-else>
                 <fa icon="star"/>
             </a>
         </div>
@@ -24,21 +29,21 @@ library.add(faStar);
 
 export default {
     name: 'Rating',
+
     props: {
-        value: {
-            required: true,
-        },
         max: {
             type: Number,
-            requred: false,
             default: 5,
         },
         readonly: {
             type: Boolean,
-            requred: false,
             default: false,
         },
+        value: {
+            type: Number,
+        },
     },
+
     data: () => ({
         hover: false,
         hoverValue: 0,
@@ -53,27 +58,15 @@ export default {
     },
 };
 </script>
+
 <style lang="scss">
 .rating {
-    min-width: 150px;
-    a {
+    a, span {
         color: grey;
 
         &.active {
             color: gold;
-
-            &:hover {
-                color: gold;
-            }
         }
-
-        &:hover {
-            color: grey;
-        }
-    }
-
-    &.readonly a {
-        cursor: auto;
     }
 }
 </style>
