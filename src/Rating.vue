@@ -5,17 +5,15 @@
         <div class="is-inline"
             v-for="step in max"
             :key="step">
-            <span class="icon active"
-                :class="{'active': active(step) || isHalf(step)}"
+            <span class="icon"
                 v-if="readonly">
                 <fa :icon="icon(step)"/>
             </span>
-            <a class="icon active"
+            <a class="icon"
                 @mouseover="hoverValue = step"
                 @click="$emit('input', step)"
-                :class="{'active': active(step)}"
                 v-else>
-                <fa icon="star"/>
+                <fa :icon="icon(step)"/>
             </a>
         </div>
     </div>
@@ -42,6 +40,7 @@ export default {
         },
         value: {
             type: Number,
+            default: null,
         },
     },
 
@@ -61,6 +60,10 @@ export default {
                 return faStarHalfAlt;
             }
 
+            if (this.value === null) {
+                return faStarAlt;
+            }
+
             return step <= this.value ? faStar : faStarAlt;
         },
         isHalf(step) {
@@ -75,7 +78,7 @@ export default {
         a, span {
             color: grey;
 
-            &.active {
+            &.icon {
                 color: gold;
             }
         }
