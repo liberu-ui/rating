@@ -3,17 +3,17 @@
         @mouseover="hover = !readonly"
         @mouseleave="hover = false; hoverValue = 0">
         <div class="is-inline"
-            v-for="rate in max"
-            :key="rate">
+            v-for="step in max"
+            :key="step">
             <span class="icon"
-                :class="{'active': active(rate)}"
+                :class="{'active': active(step) || isHalf(step)}"
                 v-if="readonly">
-                <fa icon="star"/>
+                <fa :icon="icon(step)"/>
             </span>
             <a class="icon"
-                @mouseover="hoverValue = rate"
-                @click="$emit('input', rate)"
-                :class="{'active': active(rate)}"
+                @mouseover="hoverValue = step"
+                @click="$emit('input', step)"
+                :class="{'active': active(step)}"
                 v-else>
                 <fa icon="star"/>
             </a>
@@ -23,9 +23,9 @@
 
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faStarHalfAlt, faStartHalfAlt } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faStar);
+library.add(faStar, faStarHalfAlt);
 
 export default {
     name: 'Rating',
@@ -50,23 +50,29 @@ export default {
     }),
 
     methods: {
-        active(rate) {
+        active(step) {
             return this.hover
-                ? rate <= this.hoverValue
-                : rate <= this.value;
+                ? step <= this.hoverValue
+                : step <= this.value;
+        },
+        icon(step) {
+            return this.isHalf(step) ? faStarHalfAlt : faStar;
+        },
+        isHalf(step) {
+            return step > this.value && step - 1 < this.value;
         },
     },
 };
 </script>
 
 <style lang="scss">
-.rating {
-    a, span {
-        color: grey;
+    .rating {
+        a, span {
+            color: grey;
 
-        &.active {
-            color: gold;
+            &.active {
+                color: gold;
+            }
         }
     }
-}
 </style>
