@@ -3,7 +3,7 @@
         @mouseover="hover = !readonly"
         @mouseleave="hover = false; hoverValue = 0">
         <div class="is-inline"
-            v-if="clearControl">
+            v-if="clearControl && value">
             <span class="icon has-text-muted is-clickable"
                 @click="$emit('input', null)">
                 <fa icon="star"/>
@@ -17,7 +17,7 @@
                 <fa :icon="icon(step)"/>
             </span>
             <span class="icon is-clickable"
-                @mouseover="hoverValue = step; blah()"
+                @mouseover="hoverValue = step"
                 @click="$emit('input', step)"
                 v-else>
                 <fa :icon="icon(step)"/>
@@ -67,14 +67,11 @@ export default {
     },
 
     methods: {
-        blah() {
-            console.log(this.currentValue);
-        },
         icon(step) {
             if (this.isHalf(step)) {
                 return faStarHalfAlt;
             }
-console.log(step <= this.currentValue ? faStar : faStarAlt);
+
             return step <= this.currentValue ? faStar : faStarAlt;
         },
         isHalf(step) {
