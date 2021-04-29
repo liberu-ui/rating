@@ -5,22 +5,28 @@
         <div class="is-inline"
             v-if="clearControl && value">
             <span class="icon has-text-muted is-clickable"
+                :class="{ 'is-small': small }"
                 @click="$emit('input', null)">
-                <fa icon="star"/>
+                <fa icon="star"
+                    :size="small ? 'sm': null"/>
             </span>
         </div>
         <div class="is-inline stars"
             v-for="step in max"
             :key="step">
             <span class="icon"
+                :class="{ 'is-small': small }"
                 v-if="readonly">
-                <fa :icon="icon(step)"/>
+                <fa :icon="icon(step)"
+                    :size="small ? 'sm': null"/>
             </span>
             <span class="icon is-clickable"
+                :class="{ 'is-small': small }"
                 @mouseover="hoverValue = step"
                 @click="$emit('input', step)"
                 v-else>
-                <fa :icon="icon(step)"/>
+                <fa :icon="icon(step)"
+                    :size="small ? 'sm': null"/>
             </span>
         </div>
     </div>
@@ -46,6 +52,10 @@ export default {
             default: 5,
         },
         readonly: {
+            type: Boolean,
+            default: false,
+        },
+        small: {
             type: Boolean,
             default: false,
         },
