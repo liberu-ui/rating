@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarAlt } from '@fortawesome/free-regular-svg-icons';
@@ -41,6 +42,8 @@ library.add(faStar, faStarAlt, faStarHalfAlt);
 
 export default {
     name: 'Rating',
+
+    components: { Fa },
 
     props: {
         clearControl: {
