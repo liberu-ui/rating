@@ -1,6 +1,6 @@
 {
   "name": "@enso-ui/rating",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Rating component",
   "main": "index.js",
   "scripts": {
