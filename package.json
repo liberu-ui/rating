@@ -1,5 +1,5 @@
 {
-  "name": "@enso-ui/rating",
+  "name": "@cgdsoftware/rating",
   "version": "2.0.9",
   "description": "Rating component",
   "main": "index.js",
