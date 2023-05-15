@@ -1,5 +1,5 @@
 {
-  "name": "@cgdsoftware/rating",
+  "name": "@liberu-ui/rating",
   "version": "2.0.9",
   "description": "Rating component",
   "main": "index.js",
