@@ -1,6 +1,6 @@
 {
   "name": "@liberu-ui/rating",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "Rating component",
   "main": "index.js",
   "scripts": {
