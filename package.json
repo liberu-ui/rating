@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enso-ui/rating.git"
+    "url": "git+https://github.com/liberu-ui/rating.git"
   },
   "keywords": [
     "rating",
@@ -19,9 +19,9 @@
   "author": "Adrian Ocneanu <aocneanu@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/enso-ui/rating/issues"
+    "url": "https://github.com/liberu-ui/rating/issues"
   },
-  "homepage": "https://github.com/enso-ui/rating#readme",
+  "homepage": "https://github.com/liberu-ui/rating#readme",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.2",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",

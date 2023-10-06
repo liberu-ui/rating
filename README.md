@@ -1,7 +1,7 @@
 # Rating
 
-[![License](https://poser.pugx.org/enso-ui/rating/license)](https://packagist.org/packages/enso-ui/rating)
-[![Latest Stable Version](https://poser.pugx.org/enso-ui/rating/version)](https://packagist.org/packages/enso-ui/rating)
+[![License](https://poser.pugx.org/liberu-ui/rating/license)](https://packagist.org/packages/liberu-ui/rating)
+[![Latest Stable Version](https://poser.pugx.org/liberu-ui/rating/version)](https://packagist.org/packages/liberu-ui/rating)
 
 Element Resize Detector
 
